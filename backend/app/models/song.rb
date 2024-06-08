@@ -12,7 +12,7 @@ class Song < ApplicationRecord
             song_id = apicall.search_song_id(search_query)
             lyrics = apicall.get_lyrics(song_id)
             
-            song = Song.new(title: title, lyrics: lyrics, artist: artist)
+            song = Song.new(title: title, lyrics: lyrics, songer: artist)
             if song.save
                 return true
             else
