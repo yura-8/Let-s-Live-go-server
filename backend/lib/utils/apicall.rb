@@ -63,7 +63,8 @@ module Utils
           lyrics = doc.css('[data-lyrics-container="true"]').text.strip
         end
 
-        lyrics = lyrics.gsub(/[.*?]/, '')
+        cleaned_lyrics = lyrics.gsub(/\[.*?\]/, '')
+        cleaned_lyrics
       else
         raise "Error fetching lyrics: #{response.message}"
       end
