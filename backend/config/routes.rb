@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     collection do
       get 'song_name/:song_name', to: 'songs#song_name'
       get 'artist_name/:artist_name', to: 'songs#artist_name'
-      get 'song_id_one', to: 'songs#song_id_one'
+      get 'song_id_one/:song_name/:artist_name', to: 'songs#song_id_one'
+      get 'song_data/:song_name/:artist_name', to: 'songs#song_data'
     end
     resources :responses, only: [:index, :create, :show, :update, :destroy]
   end

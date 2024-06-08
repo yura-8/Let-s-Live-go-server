@@ -31,4 +31,22 @@ class SongsController < ApplicationController
             render status: 404
         end
     end   
+
+    def song_data
+        song_name = params[:song_name]
+        artist_name = params[:artist_name]
+        songs = Song.where(title: song_name, songer: artist_name)
+        
+        if songs.present?
+            render json: { message: 'Song already exists' }, status: 200
+        else
+            flag = Song.create_song_data(song_name, artist_name)
+            if flag.present?
+                render json: { message: 'Song created successfully' }, status: 200
+            else
+                render json: { error: 'Failed to create song' }, status: 404
+            end
+        end
+    end
+    
 end
