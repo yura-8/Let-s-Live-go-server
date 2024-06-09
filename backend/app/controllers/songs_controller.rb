@@ -48,8 +48,9 @@ class SongsController < ApplicationController
             end
         end
     end
-    def lyrics_serch
-        song = Song.where("first_name LIKE ?", "%#{params[:lyrics_word]}%")
+
+    def lyrics_search
+        song = Song.where("lyrics LIKE ?", "%#{params[:lyrics_word]}%")
         if song.present?
             render json: song, status: 200
         else

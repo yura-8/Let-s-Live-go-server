@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get 'artist_name/:artist_name', to: 'songs#artist_name'
       get 'song_id_one/:song_name/:artist_name', to: 'songs#song_id_one'
       get 'song_data/:song_name/:artist_name', to: 'songs#song_data'
+      get 'lyrics_search/:lyrics_word', to: 'songs#lyrics_search'
     end
     resources :responses, only: [:index, :create, :show, :update, :destroy]
   end
